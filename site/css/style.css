@@ -4339,12 +4339,22 @@ ul, ol {
 
     .theone-flow-grid {
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
         gap: 20px;
         margin-bottom: 60px;
     }
 
+    .theone-flow-step {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+
     .theone-flow-arrow {
         display: none;
+    }
+
+    .theone-flow-arrow-down {
+        display: none !important;
     }
 
     .theone-flow-step-image {
