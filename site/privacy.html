@@ -16,26 +16,23 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Fixed Header -->
     <header class="header">
-        <div class="container header-container">
-            <div class="logo">
+        <div class="header-container">
+            <div class="header-logo">
                 <a href="index.html">
-                    <span class="logo-text">ADDRESS CALLING</span>
-                    <span class="logo-sub">株式会社</span>
+                    <img src="images/logo.jpg" alt="ADDRESS CALLING" class="logo-image">
                 </a>
             </div>
-            <nav class="nav">
+            <nav class="header-nav">
                 <ul class="nav-list">
                     <li><a href="index.html">TOP</a></li>
                     <li><a href="service.html">事業紹介</a></li>
-                    <li><a href="school.html">オンラインスクール</a></li>
-                    <li><a href="index.html#company">会社概要</a></li>
-                    <li><a href="index.html#contact">お問い合わせ</a></li>
+                    <li><a href="school.html">スクール詳細</a></li>
                 </ul>
             </nav>
-            <a href="index.html#contact" class="btn btn-primary btn-header">お問い合わせ</a>
-            <button class="mobile-menu-toggle" aria-label="メニュー">
+            <a href="index.html#contact" class="btn-contact">お問い合わせ</a>
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-label="メニュー">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -58,228 +55,122 @@
         <div class="container">
             <div class="policy-content">
                 <div class="policy-intro">
+                    <h2 class="policy-heading">個人情報保護方針について</h2>
                     <p>
-                        アドレスコーリング株式会社（以下「当社」といいます）は、お客様の個人情報保護の重要性について認識し、
-                        個人情報の保護に関する法律（以下「個人情報保護法」といいます）を遵守すると共に、
-                        以下のプライバシーポリシー（以下「本ポリシー」といいます）に従い、適切な取扱い及び保護に努めます。
+                        当社は「顧客ならびに当社従業員の個人情報の保護を重大な社会的責任と認識」し、
+                        法令遵守とコンプライアンス・プログラムの構築に取り組んでおります。
                     </p>
                 </div>
 
-                <!-- Article 1 -->
+                <!-- 7 Principles -->
                 <div class="policy-article">
-                    <h2 class="policy-heading">第1条（個人情報の定義）</h2>
+                    <h2 class="policy-heading">個人情報の取り扱いに関する7つの原則</h2>
                     <div class="policy-text">
-                        <p>
-                            「個人情報」とは、個人情報保護法第2条第1項により定義された個人情報、
-                            すなわち、生存する個人に関する情報であって、当該情報に含まれる氏名、生年月日その他の記述等により
-                            特定の個人を識別することができるもの（他の情報と容易に照合することができ、
-                            それにより特定の個人を識別することができることとなるものを含みます）、
-                            もしくは個人識別符号が含まれる情報を指します。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Article 2 -->
-                <div class="policy-article">
-                    <h2 class="policy-heading">第2条（個人情報の収集方法）</h2>
-                    <div class="policy-text">
-                        <p>当社は、以下の方法により個人情報を収集することがあります。</p>
-                        <ul>
-                            <li>お問い合わせフォームからのご入力</li>
-                            <li>お電話やメールでのお問い合わせ</li>
-                            <li>資料請求やサービスお申込み時のご入力</li>
-                            <li>オンラインスクールへのお申込み時のご入力</li>
-                            <li>求人応募時のご入力</li>
-                            <li>セミナーやイベントへの参加申込み</li>
-                            <li>アンケートやキャンペーンへのご参加</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Article 3 -->
-                <div class="policy-article">
-                    <h2 class="policy-heading">第3条（個人情報の利用目的）</h2>
-                    <div class="policy-text">
-                        <p>当社は、収集した個人情報を以下の目的で利用いたします。</p>
-                        <ol>
-                            <li>当社サービスの提供、運営、管理のため</li>
-                            <li>お問い合わせへの対応のため</li>
-                            <li>資料送付、見積書作成のため</li>
-                            <li>契約の締結、履行、アフターサービスの提供のため</li>
-                            <li>オンラインスクールの運営、受講管理、修了証発行のため</li>
-                            <li>キャンペーン、セミナー、イベント等のご案内のため</li>
-                            <li>新商品・新サービスに関する情報のご案内のため</li>
-                            <li>マーケティング調査・分析、サービス改善のため</li>
-                            <li>請求書の発行、代金決済のため</li>
-                            <li>当社サービスに関するご案内やお知らせを配信するため</li>
-                            <li>利用規約等に違反する行為への対応のため</li>
-                            <li>採用選考のため（求人応募の場合）</li>
-                            <li>上記利用目的に付随する目的のため</li>
+                        <ol class="policy-principles">
+                            <li>
+                                <strong>適法かつ公正な収集</strong><br>
+                                適法かつ公正な手段により、利用目的を明確にし、本人の同意がある場合に限り、必要な範囲内で個人情報を収集いたします。
+                            </li>
+                            <li>
+                                <strong>厳正な管理</strong><br>
+                                個人情報は厳正に管理し、契約範囲内でのみ利用いたします。また、秘密の保持、事故発生時の責任分担を契約により取り決めます。
+                            </li>
+                            <li>
+                                <strong>委託管理</strong><br>
+                                個人情報を外部に委託する際は、漏洩を防止するため、契約により義務付け、適切な監督を実施いたします。
+                            </li>
+                            <li>
+                                <strong>第三者提供の制限</strong><br>
+                                法令に基づく場合等を除き、本人の同意なしに個人情報を第三者に開示・提供いたしません。
+                            </li>
+                            <li>
+                                <strong>安全管理措置</strong><br>
+                                不正アクセス、個人情報の紛失、改ざん、漏洩等を予防するため、必要かつ適切な安全管理措置を講じ、是正および予防処置を実施いたします。
+                            </li>
+                            <li>
+                                <strong>法令遵守</strong><br>
+                                個人情報の保護に関する法令、国が定める指針(JIS Q 15001 個人情報保護マネジメントシステム)、その他の規範および当社が定めた社内規程を遵守いたします。
+                            </li>
+                            <li>
+                                <strong>継続的改善</strong><br>
+                                コンプライアンス・プログラムについて、定期的に監査を行い、継続的改善に努めます。
+                            </li>
                         </ol>
                     </div>
                 </div>
 
-                <!-- Article 4 -->
+                <!-- Usage Purpose -->
                 <div class="policy-article">
-                    <h2 class="policy-heading">第4条（利用目的の変更）</h2>
+                    <h2 class="policy-heading">個人情報の利用目的</h2>
                     <div class="policy-text">
-                        <p>
-                            当社は、個人情報の利用目的を、関連性を有すると合理的に認められる範囲内において変更することがあり、
-                            変更した場合には、本ウェブサイトへの掲載その他の適切な方法により、お客様に通知または公表します。
-                        </p>
+                        <h3 class="policy-subheading">直接書面により取得する個人情報の利用目的</h3>
+                        <ul>
+                            <li>名刺・はがき・名簿などの印刷物の製造のため</li>
+                            <li>写真の現像・プリントのため</li>
+                            <li>データ加工業務のため</li>
+                            <li>メールでのお問い合わせに対応するため</li>
+                            <li>サービス・商品のご案内を提供するため</li>
+                            <li>お申込みに対して、本人への確認、サービス等の提供、提供に伴う連絡、関連するアフターサービスの提供、サービス等に関する情報の提供のため</li>
+                            <li>請求書等の発行、支払確認のため</li>
+                        </ul>
+
+                        <h3 class="policy-subheading">委託により取得する個人情報の利用目的</h3>
+                        <ul>
+                            <li>ダイレクトメールの製造・発送のため</li>
+                            <li>宛名印字のため</li>
+                            <li>ウェブサイト制作のため</li>
+                            <li>その他、委託を受けた業務の遂行のため</li>
+                        </ul>
+
+                        <h3 class="policy-subheading">採用応募情報の利用目的</h3>
+                        <p>採用選考活動およびそれに付帯する業務のためにのみ利用いたします。</p>
+
+                        <h3 class="policy-subheading">従業員等の個人情報の利用目的</h3>
+                        <p>雇用管理、業務管理、健康管理、セキュリティ管理等に必要な範囲で利用いたします。</p>
                     </div>
                 </div>
 
-                <!-- Article 5 -->
+                <!-- Third Party Disclosure -->
                 <div class="policy-article">
-                    <h2 class="policy-heading">第5条（個人情報の第三者提供）</h2>
+                    <h2 class="policy-heading">個人情報の第三者への提供</h2>
                     <div class="policy-text">
-                        <p>
-                            当社は、次に掲げる場合を除いて、あらかじめお客様の同意を得ることなく、
-                            第三者に個人情報を提供することはありません。
-                        </p>
-                        <ol>
+                        <p>当社は、次の場合を除いて、本人の同意なく個人情報を第三者に提供いたしません。</p>
+                        <ul>
                             <li>法令に基づく場合</li>
                             <li>人の生命、身体または財産の保護のために必要がある場合であって、本人の同意を得ることが困難であるとき</li>
                             <li>公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合であって、本人の同意を得ることが困難であるとき</li>
                             <li>国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合であって、本人の同意を得ることにより当該事務の遂行に支障を及ぼすおそれがあるとき</li>
-                        </ol>
-                        <p class="policy-note">
-                            ※ 当社は、サービスの提供にあたり、配送業者、決済代行会社、クラウドサービス事業者など、
-                            業務委託先に個人情報を提供することがあります。この場合、当社は、個人情報を適切に取り扱っていると認められる委託先を選定し、
-                            契約等において個人情報の適正管理・機密保持等を義務づけるとともに、適切な管理を実施させます。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Article 6 -->
-                <div class="policy-article">
-                    <h2 class="policy-heading">第6条（個人情報の開示）</h2>
-                    <div class="policy-text">
-                        <p>
-                            当社は、お客様から個人情報の開示を求められたときは、お客様ご本人に対し、遅滞なくこれを開示します。
-                            ただし、開示することにより次のいずれかに該当する場合は、その全部または一部を開示しないこともあり、
-                            開示しない決定をした場合には、その旨を遅滞なく通知します。
-                        </p>
-                        <ol>
-                            <li>お客様または第三者の生命、身体、財産その他の権利利益を害するおそれがある場合</li>
-                            <li>当社の業務の適正な実施に著しい支障を及ぼすおそれがある場合</li>
-                            <li>法令に違反することとなる場合</li>
-                        </ol>
-                    </div>
-                </div>
-
-                <!-- Article 7 -->
-                <div class="policy-article">
-                    <h2 class="policy-heading">第7条（個人情報の訂正および削除）</h2>
-                    <div class="policy-text">
-                        <p>
-                            お客様は、当社の保有する自己の個人情報が誤った情報である場合には、
-                            当社が定める手続きにより、当社に対して個人情報の訂正、追加または削除（以下「訂正等」といいます）を請求することができます。
-                        </p>
-                        <p>
-                            当社は、お客様から訂正等の請求を受けた場合には、その内容を確認した上で、
-                            遅滞なく必要な調査を行い、その結果に基づき、個人情報の訂正等を行い、その旨をお客様に通知します。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Article 8 -->
-                <div class="policy-article">
-                    <h2 class="policy-heading">第8条（個人情報の利用停止等）</h2>
-                    <div class="policy-text">
-                        <p>
-                            当社は、お客様から、個人情報が利用目的の範囲を超えて取り扱われているという理由、
-                            または不正の手段により取得されたものであるという理由により、
-                            その利用の停止または消去（以下「利用停止等」といいます）を求められた場合には、
-                            遅滞なく必要な調査を行います。
-                        </p>
-                        <p>
-                            当社は、調査結果に基づき、その請求に応じる必要があると判断した場合には、
-                            遅滞なく、当該個人情報の利用停止等を行い、その旨をお客様に通知します。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Article 9 -->
-                <div class="policy-article">
-                    <h2 class="policy-heading">第9条（Cookie（クッキー）等の利用）</h2>
-                    <div class="policy-text">
-                        <p>
-                            当社のウェブサイトでは、お客様により良いサービスを提供するため、Cookie（クッキー）を使用することがあります。
-                            Cookieとは、ウェブサイトがお客様のコンピュータに送信する小さなテキストファイルで、
-                            お客様のコンピュータに保存されます。
-                        </p>
-                        <p>当社は、以下の目的でCookieを使用します。</p>
-                        <ul>
-                            <li>お客様の利便性向上のため（ログイン状態の保持など）</li>
-                            <li>ウェブサイトの利用状況の分析のため</li>
-                            <li>広告配信の最適化のため</li>
-                        </ul>
-                        <p class="policy-note">
-                            ※ お客様は、ブラウザの設定によりCookieの受け取りを拒否することができます。
-                            ただし、Cookieを無効にした場合、当社ウェブサイトの一部機能がご利用いただけなくなる場合があります。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Article 10 -->
-                <div class="policy-article">
-                    <h2 class="policy-heading">第10条（アクセス解析ツール）</h2>
-                    <div class="policy-text">
-                        <p>
-                            当社のウェブサイトでは、Google Analyticsを使用しています。
-                            Google Analyticsは、Cookieを使用してウェブサイトの利用状況を分析します。
-                            Google Analyticsにより収集、記録される情報には、特定の個人を識別する情報は一切含まれません。
-                            また、それらの情報は、Googleにより同社のプライバシーポリシーに基づいて管理されます。
-                        </p>
-                        <p>
-                            Google Analyticsの利用規約及びプライバシーポリシーについては、
-                            Googleのウェブサイトをご確認ください。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Article 11 -->
-                <div class="policy-article">
-                    <h2 class="policy-heading">第11条（個人情報の安全管理措置）</h2>
-                    <div class="policy-text">
-                        <p>
-                            当社は、個人情報の漏えい、滅失またはき損の防止その他の個人情報の安全管理のため、
-                            以下の措置を講じます。
-                        </p>
-                        <ul>
-                            <li>組織的安全管理措置：個人情報保護管理者の設置、従業者の役割と責任の明確化</li>
-                            <li>人的安全管理措置：従業者に対する教育・研修の実施、秘密保持契約の締結</li>
-                            <li>物理的安全管理措置：入退室管理の実施、個人情報の盗難防止措置</li>
-                            <li>技術的安全管理措置：アクセス制御、不正アクセス対策、ウイルス対策</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Article 12 -->
+                <!-- Disclosure Request -->
                 <div class="policy-article">
-                    <h2 class="policy-heading">第12条（お子様の個人情報）</h2>
+                    <h2 class="policy-heading">保有個人データの開示等の手続きについて</h2>
                     <div class="policy-text">
                         <p>
-                            当社は、15歳未満のお子様から個人情報を収集する際には、保護者の同意を必要とします。
-                            15歳未満の方が当社のサービスをご利用になる場合は、必ず保護者の同意を得た上でご利用ください。
+                            当社は、保有個人データに関する開示、訂正、追加、削除、利用停止等の請求に対して、
+                            本人確認のうえ、適切かつ迅速に対応いたします。
                         </p>
-                    </div>
-                </div>
 
-                <!-- Article 13 -->
-                <div class="policy-article">
-                    <h2 class="policy-heading">第13条（プライバシーポリシーの変更）</h2>
-                    <div class="policy-text">
-                        <p>
-                            当社は、法令の変更、サービス内容の変更等に伴い、本ポリシーを変更することがあります。
-                            変更後のプライバシーポリシーは、本ウェブサイトに掲載した時点から効力を生じるものとします。
+                        <h3 class="policy-subheading">開示等の申し出先</h3>
+                        <p class="policy-contact-info">
+                            〒332-0011 埼玉県川口市元郷3-4-11<br>
+                            アドレスコーリング株式会社<br>
+                            個人情報保護管理者<br>
+                            電話：048-224-4846<br>
+                            受付時間：平日 9:00～18:00（土日祝日、年末年始を除く）
                         </p>
-                        <p>
-                            重要な変更がある場合には、本ウェブサイト上で目立つ形で告知するか、
-                            電子メール等により個別に通知いたします。
-                        </p>
+
+                        <h3 class="policy-subheading">開示等の求めに際して提出すべき書面等</h3>
+                        <ul>
+                            <li>当社所定の請求書</li>
+                            <li>本人確認書類（運転免許証、パスポート、健康保険証のいずれかの写し）</li>
+                            <li>代理人による請求の場合は、代理権を証明する書類（委任状等）および代理人の本人確認書類</li>
+                        </ul>
+
+                        <h3 class="policy-subheading">手数料</h3>
+                        <p>開示請求につきましては、手数料（1,000円）を申し受けます。</p>
                     </div>
                 </div>
 
@@ -288,32 +179,27 @@
                     <h2 class="policy-heading">個人情報に関するお問い合わせ窓口</h2>
                     <div class="contact-info">
                         <p>
-                            個人情報の開示、訂正、利用停止等のご請求、その他個人情報の取扱いに関するお問い合わせは、
-                            以下の窓口までご連絡ください。
+                            個人情報の取扱いに関するご質問、苦情、ご相談につきましては、下記窓口までお問い合わせください。
                         </p>
                         <div class="contact-details">
                             <p class="contact-company">アドレスコーリング株式会社</p>
-                            <p class="contact-dept">個人情報保護管理者：管理部</p>
+                            <p class="contact-dept">個人情報保護管理者</p>
                             <p class="contact-address">
-                                〒331-0812<br>
-                                埼玉県さいたま市北区宮原町2-107-2 MKビル2F
+                                〒332-0011<br>
+                                埼玉県川口市元郷3-4-11
                             </p>
-                            <p class="contact-tel">TEL: 048-871-9174</p>
-                            <p class="contact-email">E-mail: privacy@example.com</p>
+                            <p class="contact-tel">TEL: 048-224-4846</p>
+                            <p class="contact-fax">FAX: 048-499-3332</p>
                             <p class="contact-hours">受付時間: 平日 9:00～18:00（土日祝日、年末年始を除く）</p>
                         </div>
-                        <p class="contact-note">
-                            ※ 個人情報の開示等のご請求につきましては、ご本人確認のため、
-                            運転免許証、パスポート等の公的証明書のコピーをご提出いただく場合がございます。
-                        </p>
                     </div>
                 </div>
 
                 <!-- Established Date -->
                 <div class="policy-established">
-                    <p>制定日：2012年10月1日</p>
+                    <p>制定日：2012年4月11日</p>
                     <p>最終改訂日：2025年1月1日</p>
-                    <p class="policy-company">アドレスコーリング株式会社<br>代表取締役 佐藤 良太</p>
+                    <p class="policy-company">アドレスコーリング株式会社<br>代表取締役 浜野 陽子</p>
                 </div>
             </div>
         </div>
@@ -328,52 +214,64 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title">ADDRESS CALLING株式会社</h3>
-                    <p class="footer-text">
-                        〒331-0812<br>
-                        埼玉県さいたま市北区宮原町2-107-2 MKビル2F<br>
-                        TEL: 048-871-9174<br>
-                        FAX: 048-871-9175<br>
-                        E-mail: info@example.com
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-heading">サイトマップ</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">TOP</a></li>
-                        <li><a href="service.html">事業紹介</a></li>
-                        <li><a href="school.html">オンラインスクール</a></li>
-                        <li><a href="index.html#company">会社概要</a></li>
-                        <li><a href="index.html#contact">お問い合わせ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-heading">事業内容</h4>
-                    <ul class="footer-links">
-                        <li><a href="service.html#ec-logistics">EC物流代行</a></li>
-                        <li><a href="service.html#contract-work">委託作業サービス</a></li>
-                        <li><a href="school.html">オンラインAIスクール</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-heading">認可・資格</h4>
-                    <ul class="footer-links">
-                        <li>古物商認可 第431030053859号</li>
-                        <li>第一種貨物利用運送業認可 関自貨第61号</li>
-                    </ul>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <span class="logo-text-footer">ADDRESS CALLING</span>
+                        </a>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LINE">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <a href="index.html#contact" class="btn-contact-footer">お問い合わせ</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="footer-copyright">&copy; 2025 ADDRESS CALLING Inc. All Rights Reserved.</p>
-                <ul class="footer-legal">
+
+            <div class="footer-nav">
+                <ul class="footer-nav-list">
+                    <li><a href="index.html">TOP</a></li>
+                    <li><a href="service.html">事業紹介</a></li>
+                    <li><a href="school.html">スクール詳細</a></li>
                     <li><a href="privacy.html">プライバシーポリシー</a></li>
                 </ul>
             </div>
+
+            <div class="footer-bottom">
+                <p>&copy; Address Calling Inc. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Floating CTA Button -->
+    <a href="index.html#contact" class="floating-cta" aria-label="お問い合わせ">
+        <span class="floating-cta-text">お問い<br>合わせ</span>
+    </a>
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>

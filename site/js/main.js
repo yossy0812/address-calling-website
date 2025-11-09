@@ -235,23 +235,40 @@ function initFormValidation() {
                 return;
             }
 
-            // Show success message
-            showFormSuccess(form);
+            // Disable submit button to prevent double submission
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = '送信中...';
 
-            // In production, you would send the form data to a server here
-            // Example:
-            // const formData = new FormData(form);
-            // fetch('/api/contact', {
-            //     method: 'POST',
-            //     body: formData
-            // })
-            // .then(response => response.json())
-            // .then(data => {
-            //     showFormSuccess(form);
-            // })
-            // .catch(error => {
-            //     showFormError(form, error.message);
-            // });
+            // Prepare form data
+            const formData = new FormData(form);
+
+            // Send data to PHP
+            fetch('contact.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+
+                if (data.success) {
+                    showFormSuccess(form, data.message);
+                } else {
+                    showFormError(form, data.message);
+                }
+            })
+            .catch(error => {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+
+                showFormError(form, 'エラーが発生しました。お手数ですが、お電話にてお問い合わせください。<br>TEL: 048-224-4846');
+                console.error('Form submission error:', error);
+            });
         });
 
         // Real-time validation
@@ -303,8 +320,21 @@ function validateForm(form) {
         }
     });
 
-    // Validate checkbox (privacy policy)
-    const privacyCheckbox = form.querySelector('input[name="privacy"]');
+    // Validate inquiry type checkboxes
+    const inquiryCheckboxes = form.querySelectorAll('input[name="inquiry_type[]"]');
+    if (inquiryCheckboxes.length > 0) {
+        const isAnyChecked = Array.from(inquiryCheckboxes).some(cb => cb.checked);
+        if (!isAnyChecked) {
+            const checkboxGroup = form.querySelector('#inquiry-checkboxes');
+            if (checkboxGroup) {
+                showFieldError(checkboxGroup.parentElement, 'お問い合わせ内容を選択してください');
+                isValid = false;
+            }
+        }
+    }
+
+    // Validate privacy agreement checkbox
+    const privacyCheckbox = form.querySelector('input[name="privacy_agreed"]');
     if (privacyCheckbox && !privacyCheckbox.checked) {
         showFieldError(privacyCheckbox, 'プライバシーポリシーに同意してください');
         isValid = false;
@@ -361,7 +391,13 @@ function isValidPhone(phone) {
     return regex.test(phone);
 }
 
-function showFormSuccess(form) {
+function showFormSuccess(form, message) {
+    // Remove existing messages
+    const existingMsg = form.querySelector('.form-success-message');
+    if (existingMsg) {
+        existingMsg.remove();
+    }
+
     // Create success message
     const successDiv = document.createElement('div');
     successDiv.className = 'form-success-message';
@@ -369,15 +405,14 @@ function showFormSuccess(form) {
         <div style="
             background-color: #4CAF50;
             color: white;
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
             margin-top: 1rem;
             animation: fadeIn 0.5s ease;
         ">
             <strong>送信完了</strong><br>
-            お問い合わせありがとうございます。<br>
-            担当者より折り返しご連絡させていただきます。
+            ${message || 'お問い合わせありがとうございます。<br>担当者より3営業日以内にご連絡させていただきます。'}
         </div>
     `;
 
@@ -390,23 +425,30 @@ function showFormSuccess(form) {
     // Scroll to success message
     successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-    // Remove success message after 5 seconds
+    // Remove success message after 8 seconds
     setTimeout(() => {
         successDiv.remove();
-    }, 5000);
+    }, 8000);
 }
 
 function showFormError(form, message) {
+    // Remove existing messages
+    const existingMsg = form.querySelector('.form-error-message, .form-success-message');
+    if (existingMsg) {
+        existingMsg.remove();
+    }
+
     const errorDiv = document.createElement('div');
     errorDiv.className = 'form-error-message';
     errorDiv.innerHTML = `
         <div style="
             background-color: #f44336;
             color: white;
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
             margin-top: 1rem;
+            animation: fadeIn 0.5s ease;
         ">
             <strong>エラー</strong><br>
             ${message}
@@ -415,9 +457,12 @@ function showFormError(form, message) {
 
     form.appendChild(errorDiv);
 
+    // Scroll to error message
+    errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
     setTimeout(() => {
         errorDiv.remove();
-    }, 5000);
+    }, 8000);
 }
 
 // Add error input style
