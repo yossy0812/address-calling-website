@@ -229,7 +229,34 @@ ul, ol {
 
 @media (max-width: 1024px) {
     .header-nav {
-        display: none;
+        position: fixed;
+        top: var(--header-height);
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - var(--header-height));
+        background-color: var(--color-white);
+        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+        transition: right 0.3s ease;
+        z-index: 999;
+        padding: 2rem 1.5rem;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-nav.active {
+        right: 0;
+    }
+
+    .header-nav .nav-list {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .header-nav .nav-list a {
+        font-size: 1.125rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .btn-contact {
@@ -238,6 +265,21 @@ ul, ol {
 
     .mobile-menu-toggle {
         display: flex;
+        background: none;
+        border: none;
+        padding: 0.5rem;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
     }
 }
 
