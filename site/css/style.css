@@ -238,7 +238,7 @@ ul, ol {
         box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
         transition: right 0.3s ease;
         z-index: 999;
-        padding: 0 1.5rem 1rem;
+        padding: 0;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
@@ -271,7 +271,7 @@ ul, ol {
 
     .header-nav .nav-list a {
         font-size: 1.125rem;
-        padding: 1rem 0;
+        padding: 1rem 1.5rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         display: block;
     }
