@@ -238,7 +238,7 @@ ul, ol {
         box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
         transition: right 0.3s ease;
         z-index: 999;
-        padding: 1.5rem 1.5rem 1rem;
+        padding: 0 1.5rem 1rem;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
@@ -255,6 +255,14 @@ ul, ol {
         padding: 0;
     }
 
+    .header-nav .nav-list li {
+        margin: 0;
+    }
+
+    .header-nav .nav-list li:first-child {
+        margin-top: 0;
+    }
+
     .header-nav .nav-list a {
         font-size: 1.125rem;
         padding: 1rem 0;
@@ -263,7 +271,8 @@ ul, ol {
     }
 
     .header-nav .nav-list li:first-child a {
-        padding-top: 1rem;
+        padding-top: 0;
+        margin-top: 0;
     }
 
     .header-nav .nav-list li:last-child a {
