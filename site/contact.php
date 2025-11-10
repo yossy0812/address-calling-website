@@ -1,6 +1,6 @@
 <?php
 /**
- * お問い合わせフォーム処理
+ * お問い合わせフォーム処理（SMTP版）
  * Address Calling Inc.
  */
 
@@ -8,25 +8,36 @@
 error_reporting(0);
 ini_set('display_errors', 0);
 
-// セッション開始（CSRF対策用）
+// セッション開始
 session_start();
 
 // 文字エンコーディング設定
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
 
-// ==================================================
-// 設定
-// ==================================================
+// PHPMailerを読み込み
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-// 管理者のメールアドレス（受信先）
+require __DIR__ . '/lib/phpmailer/Exception.php';
+require __DIR__ . '/lib/phpmailer/PHPMailer.php';
+require __DIR__ . '/lib/phpmailer/SMTP.php';
+
+// ==================================================
+// SMTP設定
+// ==================================================
+define('SMTP_HOST', 'mail20.onamae.ne.jp');
+define('SMTP_PORT', 465);
+define('SMTP_USERNAME', 'noreply@adrs-c.com');
+define('SMTP_PASSWORD', 'CSaR58wFz3!7bpK');
+define('SMTP_SECURE', 'ssl'); // 'ssl' または 'tls'
+
+// ==================================================
+// メール設定
+// ==================================================
 define('ADMIN_EMAIL', 'y-hamano@adrs-s.co.jp');
-
-// 自動返信メールの送信元（サーバードメインのアドレスを使用）
 define('FROM_EMAIL', 'noreply@adrs-c.com');
 define('FROM_NAME', 'アドレスコーリング株式会社');
-
-// サイトURL（ここを変更してください）
 define('SITE_URL', 'https://adrs-c.com');
 
 // ==================================================
@@ -37,18 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['success' => false, 'message' => 'Invalid request method']);
     exit;
 }
-
-// ==================================================
-// CSRF対策（オプション）
-// ==================================================
-// ※フロントエンドでトークンを送信する場合は有効化
-/*
-if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-    http_response_code(403);
-    echo json_encode(['success' => false, 'message' => 'Invalid CSRF token']);
-    exit;
-}
-*/
 
 // ==================================================
 // データ取得とサニタイズ
@@ -69,7 +68,6 @@ $privacy_agreed = isset($_POST['privacy_agreed']) ? $_POST['privacy_agreed'] : f
 // ==================================================
 $errors = [];
 
-// 必須項目チェック
 if (empty($company)) {
     $errors[] = '会社名は必須です';
 }
@@ -211,13 +209,54 @@ $reply_body = <<<EOD
 〒332-0011
 埼玉県川口市元郷3-4-11
 TEL: 048-224-4846
-Email: {$admin_email}
-Web: {$site_url}
+Email: y-hamano@adrs-s.co.jp
+Web: https://adrs-c.com
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOD;
 
-$admin_email = ADMIN_EMAIL;
-$site_url = SITE_URL;
+// ==================================================
+// SMTP送信関数
+// ==================================================
+function sendMailSMTP($to, $to_name, $subject, $body, $reply_to = null) {
+    $mail = new PHPMailer(true);
+
+    try {
+        // SMTP設定
+        $mail->isSMTP();
+        $mail->Host = SMTP_HOST;
+        $mail->SMTPAuth = true;
+        $mail->Username = SMTP_USERNAME;
+        $mail->Password = SMTP_PASSWORD;
+        $mail->SMTPSecure = SMTP_SECURE;
+        $mail->Port = SMTP_PORT;
+        $mail->CharSet = 'UTF-8';
+        $mail->Encoding = 'base64';
+
+        // 送信元
+        $mail->setFrom(FROM_EMAIL, FROM_NAME);
+
+        // 返信先
+        if ($reply_to) {
+            $mail->addReplyTo($reply_to);
+        }
+
+        // 宛先
+        $mail->addAddress($to, $to_name);
+
+        // メール内容
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->isHTML(false);
+
+        // 送信
+        $mail->send();
+        return true;
+
+    } catch (Exception $e) {
+        error_log("メール送信エラー: " . $mail->ErrorInfo);
+        return false;
+    }
+}
 
 // ==================================================
 // メール送信
@@ -226,29 +265,21 @@ $mail_sent = false;
 $reply_sent = false;
 
 // 管理者宛メール送信
-$admin_headers = "From: " . FROM_EMAIL . "\r\n";
-$admin_headers .= "Reply-To: " . $email . "\r\n";
-$admin_headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
-$admin_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-$mail_sent = mb_send_mail(
+$mail_sent = sendMailSMTP(
     ADMIN_EMAIL,
+    '',
     $admin_subject,
     $admin_body,
-    $admin_headers
+    $email
 );
 
 // 自動返信メール送信
-$reply_headers = "From: " . FROM_EMAIL . "\r\n";
-$reply_headers .= "Reply-To: " . ADMIN_EMAIL . "\r\n";
-$reply_headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
-$reply_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-$reply_sent = mb_send_mail(
+$reply_sent = sendMailSMTP(
     $email,
+    $last_name . ' ' . $first_name,
     $reply_subject,
     $reply_body,
-    $reply_headers
+    ADMIN_EMAIL
 );
 
 // ==================================================
