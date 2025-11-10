@@ -1,8 +1,8 @@
 # 301リダイレクト設定
 RewriteEngine On
 
-# /profile へのアクセスをトップページの会社概要セクションへリダイレクト
-RewriteRule ^profile$ /#company [R=301,L]
+# /profile へのアクセスをトップページへリダイレクト
+RewriteRule ^profile$ / [R=301,L]
 
-# /company へのアクセスをトップページの会社概要セクションへリダイレクト
-RewriteRule ^company$ /#company [R=301,L]
+# /company へのアクセスをトップページへリダイレクト
+RewriteRule ^company$ / [R=301,L]
