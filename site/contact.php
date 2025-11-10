@@ -19,11 +19,11 @@ mb_internal_encoding("UTF-8");
 // 設定
 // ==================================================
 
-// 管理者のメールアドレス（ここを変更してください）
+// 管理者のメールアドレス（受信先）
 define('ADMIN_EMAIL', 'y-hamano@adrs-s.co.jp');
 
-// 自動返信メールの送信元（ここを変更してください）
-define('FROM_EMAIL', 'y-hamano@adrs-s.co.jp');
+// 自動返信メールの送信元（サーバードメインのアドレスを使用）
+define('FROM_EMAIL', 'noreply@adrs-c.com');
 define('FROM_NAME', 'アドレスコーリング株式会社');
 
 // サイトURL（ここを変更してください）

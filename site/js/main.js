@@ -45,7 +45,7 @@ function initHeroSlideshow() {
 // ============================================
 function initMobileMenu() {
     const toggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('.nav');
+    const nav = document.querySelector('.header-nav');
 
     if (!toggle || !nav) return;
 
@@ -78,46 +78,7 @@ function initMobileMenu() {
     });
 }
 
-// Add CSS for mobile menu
-const mobileMenuStyles = document.createElement('style');
-mobileMenuStyles.textContent = `
-    @media (max-width: 1023px) {
-        .nav {
-            position: fixed;
-            top: var(--header-height);
-            right: -100%;
-            width: 250px;
-            height: calc(100vh - var(--header-height));
-            background-color: white;
-            box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
-            transition: right 0.3s ease;
-            z-index: 999;
-            padding: 2rem;
-        }
-
-        .nav.active {
-            right: 0;
-        }
-
-        .nav-list {
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-    }
-`;
-document.head.appendChild(mobileMenuStyles);
+// Mobile menu styles are now in style.css
 
 // ============================================
 // Smooth Scroll
