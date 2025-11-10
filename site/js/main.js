@@ -45,7 +45,7 @@ function initHeroSlideshow() {
 // ============================================
 function initMobileMenu() {
     const toggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('.nav');
+    const nav = document.querySelector('.header-nav');
 
     if (!toggle || !nav) return;
 
@@ -82,7 +82,7 @@ function initMobileMenu() {
 const mobileMenuStyles = document.createElement('style');
 mobileMenuStyles.textContent = `
     @media (max-width: 1023px) {
-        .nav {
+        .header-nav {
             position: fixed;
             top: var(--header-height);
             right: -100%;
@@ -95,11 +95,11 @@ mobileMenuStyles.textContent = `
             padding: 2rem;
         }
 
-        .nav.active {
+        .header-nav.active {
             right: 0;
         }
 
-        .nav-list {
+        .header-nav .nav-list {
             flex-direction: column;
             gap: 1rem;
         }
